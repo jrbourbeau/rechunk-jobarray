@@ -20,6 +20,7 @@ if __name__ == "__main__":
        'key':os.environ['AWS_ACCESS_KEY_ID'],
        'secret':os.environ['AWS_SECRET_ACCESS_KEY']
      }
+    # storage_options = {}
 
     fs = fsspec.filesystem('s3', **storage_options)
     
@@ -74,7 +75,9 @@ if __name__ == "__main__":
     print(ds.time)
     intermediate_path = "/tmp/dask-tempdir-custom"
     shutil.rmtree(intermediate_path, ignore_errors=True)
+    os.makedirs(intermediate_path, exist_ok=True)
 
+    # target_url = f"s3://oss-scratch-space/jrbourbeau/era5_{region}_{i:02d}.zarr"
     target_url = f"s3://esip/rsignell/era5_{region}_{i:02d}.zarr"
     try:
         fs.rm(target_url, recursive=True)

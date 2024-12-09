@@ -1,0 +1,12 @@
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - dask=2024.12.0
+  - coiled=1.67.0
+  - xarray=2024.11.0
+  - rechunker=0.5.2
+  - zarr=2.18.3
+  - s3fs=2024.10.0
+  - gcsfs=2024.10.0
+  - jupyterlab=4.3.2
